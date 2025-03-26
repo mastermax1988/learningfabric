@@ -21,6 +21,12 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
             itemGroup.add(ModBlocks.MINER.asItem());
         });
+        ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
+            itemGroup.add(ModBlocks.EXTRACTOR.asItem());
+        });
+        ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
+            itemGroup.add(ModBlocks.INSERTER.asItem());
+        });
     }
 
     public static final Block MINER = register(
@@ -29,6 +35,10 @@ public class ModBlocks {
             AbstractBlock.Settings.create(),
             true
     );
+
+    public static final Block EXTRACTOR = register("extractor", ExtractorBlock::new, AbstractBlock.Settings.create(), true);
+    public static final Block INSERTER = register("inserter", InserterBlock::new, AbstractBlock.Settings.create(), true);
+
 
 
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {

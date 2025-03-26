@@ -86,7 +86,6 @@ public class MinerBlockEntity extends BlockEntity {
         world.breakBlock(toMine, false);
         if(above.getBlock() instanceof ChestBlock chest) {
             Inventory inventory = ChestBlock.getInventory(chest, above, world, blockPos.up(), true);
-
             for (int i = 0; i < inventory.size(); i++) {
                 ItemStack stack = inventory.getStack(i);
                 if(stack.isEmpty()) {
