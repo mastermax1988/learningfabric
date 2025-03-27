@@ -16,8 +16,8 @@ public class ModBlockEntities {
             register("miner", MinerBlockEntity::new, ModBlocks.MINER);
     public static final BlockEntityType<ExtractorBlockEntity> EXTRACTOR_BLOCK_ENTITY =
             register("extractor", ExtractorBlockEntity::new, ModBlocks.EXTRACTOR);
-    public static final BlockEntityType<ExtractorBlockEntity> INSERTER_BLOCK_ENTITY =
-            register("inserter", ExtractorBlockEntity::new, ModBlocks.INSERTER);
+    public static final BlockEntityType<InserterBlockEntity> INSERTER_BLOCK_ENTITY =
+            register("inserter", InserterBlockEntity::new, ModBlocks.INSERTER);
 
     private static <T extends BlockEntity> BlockEntityType<T> register(
             String name,

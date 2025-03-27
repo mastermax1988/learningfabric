@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class ExtractorBlock extends BlockWithEntity {
 
-    private ExtractorBlockEntity entity;
 
     protected ExtractorBlock(Settings settings) {
         super(settings);
@@ -34,7 +33,7 @@ public class ExtractorBlock extends BlockWithEntity {
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return entity = new ExtractorBlockEntity(pos,state);
+        return new ExtractorBlockEntity(pos,state);
     }
 
     @Override
@@ -44,12 +43,12 @@ public class ExtractorBlock extends BlockWithEntity {
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if(world.isClient()){
+            return ActionResult.PASS;
+        }
         LearningFabric.linkingBlocks.put(player, pos);
-        player.sendMessage(Text.literal("saved " + pos.toString()), true);
+        LearningFabric.LOGGER.info("Saved block: "+pos);
         return super.onUse(state,world,pos,player,hit);
     }
 
-    public void setInserter(InserterBlock inserter) {
-        entity.setInserterBlock(inserter);
-    }
 }

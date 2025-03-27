@@ -5,6 +5,7 @@ import max.learingfabric.blocks.ModBlocks;
 import max.learingfabric.items.ModItems;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import org.slf4j.Logger;
